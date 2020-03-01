@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 class GildedRose {
     Item[] items;
 
@@ -35,11 +37,11 @@ class GildedRose {
                     }
                 }
             }
+        }
 
-            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                items[i].sell_in = items[i].sell_in - 1;
-            }
+        updateSellIn();
 
+        for (int i = 0; i < items.length; i++) {
             if (items[i].sell_in < 0) {
                 if (!items[i].name.equals("Aged Brie")) {
                     if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -58,5 +60,11 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private void updateSellIn() {
+        Arrays.stream(items)
+                .filter(item -> !item.name.equals("Sulfuras, Hand of Ragnaros"))
+                .forEach(item -> item.sell_in--);
     }
 }
