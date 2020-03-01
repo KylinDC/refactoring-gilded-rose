@@ -14,6 +14,12 @@ public class Item {
         this.quality = quality;
     }
 
+    public void updateShelfLife() {
+        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+            shelfLife--;
+        }
+    }
+
     @Override
     public String toString() {
         return this.name + ", " + this.shelfLife + ", " + this.quality;

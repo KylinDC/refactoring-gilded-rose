@@ -16,9 +16,7 @@ class GildedRose {
     }
 
     private void updateShelfLife() {
-        Arrays.stream(items)
-                .filter(item -> !item.name.equals("Sulfuras, Hand of Ragnaros"))
-                .forEach(item -> item.shelfLife--);
+        Arrays.stream(items).forEach(Item::updateShelfLife);
     }
 
     private void updateQualityByName() {
