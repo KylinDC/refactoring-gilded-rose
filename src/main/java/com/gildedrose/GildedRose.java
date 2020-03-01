@@ -42,30 +42,32 @@ class GildedRose {
             }
         }
 
-        for (Item item : items) {
-            if (item.sell_in < 0) {
-                if (!item.name.equals("Aged Brie")) {
-                    if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.quality > 0) {
-                            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                                item.quality = item.quality - 1;
-                            }
-                        }
-                    } else {
-                        item.quality = item.quality - item.quality;
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-            }
-        }
+        updateQualityWhenSellInUnderZero();
+
     }
 
     private void updateSellIn() {
         Arrays.stream(items)
                 .filter(item -> !item.name.equals("Sulfuras, Hand of Ragnaros"))
                 .forEach(item -> item.sell_in--);
+    }
+
+    private void updateQualityWhenSellInUnderZero() {
+        for (Item item : items) {
+            if (item.sell_in < 0) {
+                switch (item.name) {
+                    case "Aged Brie":
+                        item.quality = item.quality < 50 ? item.quality + 1 : item.quality;
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+                        item.quality = 0;
+                        break;
+                    case "Sulfuras, Hand of Ragnaros":
+                        break;
+                    default:
+                        item.quality = item.quality > 0 ? item.quality - 1 : item.quality;
+                }
+            }
+        }
     }
 }
