@@ -14,10 +14,10 @@ public class GildedRoseTest {
     public void foo() {
         Item[] items = new Item[]{new Item("foo", 1, 5)};
         GildedRose app = new GildedRose(items);
-        app.update_quality();
+        app.updateQuality();
         assertEquals("foo", app.items[0].name);
         assertThat(app.items[0].quality, is(4));
-        assertThat(app.items[0].sell_in, is(0));
+        assertThat(app.items[0].shelfLife, is(0));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class GildedRoseTest {
 
         assertEquals(exceptedInitPrint, initPrint);
 
-        gildedRose.update_quality();
+        gildedRose.updateQuality();
 
         String firstDayPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
 
@@ -50,7 +50,7 @@ public class GildedRoseTest {
 
         assertEquals(exceptedFirstDayPrint, firstDayPrint);
 
-        gildedRose.update_quality();
+        gildedRose.updateQuality();
 
         String secondDayPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
 
@@ -58,7 +58,7 @@ public class GildedRoseTest {
 
         assertEquals(exceptedSecondDayPrint, secondDayPrint);
 
-        gildedRose.update_quality();
+        gildedRose.updateQuality();
 
         String thirdDayPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
 
