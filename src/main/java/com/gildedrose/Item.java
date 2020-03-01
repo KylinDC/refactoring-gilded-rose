@@ -2,11 +2,11 @@ package com.gildedrose;
 
 public class Item {
 
-    public String name;
+    private String name;
 
-    public int shelfLife;
+    private int shelfLife;
 
-    public int quality;
+    private int quality;
 
     public Item(String name, int shelfLife, int quality) {
         this.name = name;
@@ -41,6 +41,18 @@ public class Item {
                 quality = quality > 0 ? quality - 1 : quality;
                 quality = (quality > 0 && shelfLife < 0) ? quality - 1 : quality;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getShelfLife() {
+        return shelfLife;
+    }
+
+    public int getQuality() {
+        return quality;
     }
 
     @Override

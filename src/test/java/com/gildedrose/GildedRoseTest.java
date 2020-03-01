@@ -15,9 +15,9 @@ public class GildedRoseTest {
         Item[] items = new Item[]{new Item("foo", 1, 5)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("foo", app.items[0].name);
-        assertThat(app.items[0].quality, is(4));
-        assertThat(app.items[0].shelfLife, is(0));
+        assertEquals("foo", app.getItems()[0].getName());
+        assertThat(app.getItems()[0].getQuality(), is(4));
+        assertThat(app.getItems()[0].getShelfLife(), is(0));
     }
 
     @Test
