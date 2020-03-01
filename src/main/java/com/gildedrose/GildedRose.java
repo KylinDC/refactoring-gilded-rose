@@ -10,15 +10,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        updateShelfLife();
-        updateQualityByName();
-    }
-
-    private void updateShelfLife() {
         Arrays.stream(items).forEach(Item::updateShelfLife);
-    }
-
-    private void updateQualityByName() {
         Arrays.stream(items).forEach(Item::updateQualityByName);
     }
 }
