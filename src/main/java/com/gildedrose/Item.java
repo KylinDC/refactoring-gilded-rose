@@ -55,8 +55,7 @@ public class Item {
         return quality;
     }
 
-    @Override
-    public String toString() {
+    public String printItem() {
         return this.name + ", " + this.shelfLife + ", " + this.quality;
     }
 }

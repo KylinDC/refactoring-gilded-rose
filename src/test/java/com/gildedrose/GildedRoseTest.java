@@ -36,14 +36,14 @@ public class GildedRoseTest {
 
         GildedRose gildedRose = new GildedRose(items);
 
-        String initPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
+        String initPrint = Arrays.stream(items).map(Item::printItem).reduce(String::concat).get();
         String exceptedInitPrint = "+5 Dexterity Vest, 10, 20Aged Brie, 2, 0Elixir of the Mongoose, 5, 7Sulfuras, Hand of Ragnaros, 0, 80Sulfuras, Hand of Ragnaros, -1, 80Backstage passes to a TAFKAL80ETC concert, 15, 20Backstage passes to a TAFKAL80ETC concert, 10, 49Backstage passes to a TAFKAL80ETC concert, 5, 49Backstage passes to a TAFKAL80ETC concert, 1, 20Conjured Mana Cake, 3, 6";
 
         assertEquals(exceptedInitPrint, initPrint);
 
         gildedRose.updateQuality();
 
-        String firstDayPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
+        String firstDayPrint = Arrays.stream(items).map(Item::printItem).reduce(String::concat).get();
 
         String exceptedFirstDayPrint = "+5 Dexterity Vest, 9, 19Aged Brie, 1, 1Elixir of the Mongoose, 4, 6Sulfuras, Hand of Ragnaros, 0, 80Sulfuras, Hand of Ragnaros, -1, 80Backstage passes to a TAFKAL80ETC concert, 14, 21Backstage passes to a TAFKAL80ETC concert, 9, 50Backstage passes to a TAFKAL80ETC concert, 4, 50Backstage passes to a TAFKAL80ETC concert, 0, 23Conjured Mana Cake, 2, 5";
 
@@ -51,7 +51,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        String secondDayPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
+        String secondDayPrint = Arrays.stream(items).map(Item::printItem).reduce(String::concat).get();
 
         String exceptedSecondDayPrint = "+5 Dexterity Vest, 8, 18Aged Brie, 0, 2Elixir of the Mongoose, 3, 5Sulfuras, Hand of Ragnaros, 0, 80Sulfuras, Hand of Ragnaros, -1, 80Backstage passes to a TAFKAL80ETC concert, 13, 22Backstage passes to a TAFKAL80ETC concert, 8, 50Backstage passes to a TAFKAL80ETC concert, 3, 50Backstage passes to a TAFKAL80ETC concert, -1, 0Conjured Mana Cake, 1, 4";
 
@@ -59,7 +59,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        String thirdDayPrint = Arrays.stream(items).map(Item::toString).reduce(String::concat).get();
+        String thirdDayPrint = Arrays.stream(items).map(Item::printItem).reduce(String::concat).get();
 
         String exceptedThirdDayPrint = "+5 Dexterity Vest, 7, 17Aged Brie, -1, 4Elixir of the Mongoose, 2, 4Sulfuras, Hand of Ragnaros, 0, 80Sulfuras, Hand of Ragnaros, -1, 80Backstage passes to a TAFKAL80ETC concert, 12, 23Backstage passes to a TAFKAL80ETC concert, 7, 50Backstage passes to a TAFKAL80ETC concert, 2, 50Backstage passes to a TAFKAL80ETC concert, -2, 0Conjured Mana Cake, 0, 3";
 
